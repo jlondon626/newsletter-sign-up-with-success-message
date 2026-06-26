@@ -119,8 +119,7 @@ main {
 
 
 .mailing-list-article {
-    // display: flex;
-    display: none;
+    display: flex;
     flex-direction: column;
     width: 100%;
     background-color: $white;
@@ -221,7 +220,7 @@ main {
 }
 
 .success-message-article {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: flex-start;
     gap: 2rem;
