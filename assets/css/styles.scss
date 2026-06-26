@@ -1,0 +1,233 @@
+
+// colour palette
+$white: hsl(0, 0%, 100%);
+$grey: hsl(0, 0%, 58%);
+$blue-800: hsl(234, 29%, 20%);
+$blue-700: hsl(235, 18%, 26%);
+$red: hsl(4,100%,67%);
+$gradient: linear-gradient(90deg, hsl(15, 100%, 61%), hsl(346, 100%, 66%));
+
+//breakpoints
+$breakpoint-mobile: 414px;
+$breakpoint-tablet: 795px;
+$breakpoint-desktop: 1024px;
+
+// text presets
+$text-preset-1: (
+    font-family: ('Roboto', sans-serif),
+    font-size: 3.5rem,
+    font-weight: 700
+);
+
+$text-preset-1-mobile: (
+    font-family: ('Roboto', sans-serif),
+    font-size: 2.5rem,
+    font-weight: 700
+);
+
+$text-preset-2-bold: (
+    font-family: ('Roboto', sans-serif),
+    font-size: 1rem,
+    line-height: 1.5,
+    font-weight: 700
+);
+
+$text-preset-2-regular: (
+    font-family: ('Roboto', sans-serif),
+    font-size: 1rem,
+    line-height: 1.5,
+    font-weight: 400
+);
+
+$text-preset-3 : (
+    font-family: ('Roboto', sans-serif),
+    font-size: 0.875rem,
+    line-height: 1.5,
+    font-weight: 400
+);
+
+@mixin text-preset($preset) {
+    font-family: map-get($preset, font-family);
+    font-size: map-get($preset, font-size);
+    font-weight: map-get($preset, font-weight);
+}
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == mobile {
+        @media (min-width: $breakpoint-mobile) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == tablet {
+        @media (min-width: $breakpoint-tablet) {
+            @content;
+        }   
+    }
+
+    @if $breakpoint == desktop {
+        @media (min-width: $breakpoint-desktop) {
+            @content;
+        }
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0rem;
+    min-height: 100vh;
+
+    @include respond(tablet) {
+        padding: 2rem;
+        justify-content: center;
+        background-color: $blue-800;
+    }
+
+    h1 {
+        @include text-preset($text-preset-1-mobile);
+    
+        @include respond(tablet) {
+            @include text-preset($text-preset-1);
+        }
+    }
+
+    p {
+        @include text-preset($text-preset-2-regular);
+        color: $blue-800;
+    }
+
+    button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        border: none;
+        background-color: $gradient;
+        color: $white;
+        cursor: pointer;
+        background-color: $blue-700;
+        margin-top: 1rem;
+        width: 100%;
+    }
+}
+
+
+
+.mailing-list-article {
+    // display: flex;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: $white;
+    align-items: center;
+    
+    @include respond(tablet) {
+        flex-direction: row-reverse;
+        max-width: 900px;
+        border-radius: 25px;
+        padding: 2rem;
+    }
+
+    picture {
+        width: 100%;
+        @include respond(tablet) {
+            width: 50%;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
+
+    .mailing-list-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        margin-top: 2rem;
+        width: 100%;
+        padding: 0 1rem;
+        max-width: 500px;
+        
+        @include respond(tablet) {
+            margin-right: 1rem;
+            align-items: flex-start;
+            width: 50%;
+            margin-top: 0;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            @include text-preset($text-preset-2-regular);
+
+            &::before {
+                content: "";
+                background-image: url("../images/icon-list.svg");
+                background-size: contain;
+                background-repeat: no-repeat;
+                width: 21px;
+                height: 21px;
+                margin-right: 0.5rem;
+                flex-shrink: 0;
+            }
+        }
+
+        form {
+            gap: 1rem;
+            display: block;
+            width: 100%;
+
+            .label-fields {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                justify-content: space-between;
+                
+                .error-message {
+                    @include text-preset($text-preset-3);
+                    color: $red;
+                    display: none;
+                }
+            }
+
+            label {
+                @include text-preset($text-preset-2-bold);
+                color: $blue-800;
+                margin-bottom: 0.5rem;
+            }
+
+            input {
+                display: block;
+                padding: 0.75rem 1rem;
+                border: 1px solid $grey;
+                width: 100%;
+                border-radius: 5px;
+
+                &::placeholder {
+                    color: $grey;
+                }
+            }
+        }
+    }
+}
+
+.success-message-article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    max-width: 500px;
+    border-radius: 25px;
+    background-color: $white;
+    padding: 2rem;
+
+}

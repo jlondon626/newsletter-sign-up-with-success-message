@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0rem;
+  min-height: 100vh;
+}
+@media (min-width: 795px) {
+  main {
+    padding: 2rem;
+    justify-content: center;
+    background-color: hsl(234, 29%, 20%);
+  }
+}
+main h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+@media (min-width: 795px) {
+  main h1 {
+    font-family: "Roboto", sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+  }
+}
+main p {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: hsl(234, 29%, 20%);
+}
+main button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: linear-gradient(90deg, hsl(15, 100%, 61%), hsl(346, 100%, 66%));
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+  background-color: hsl(235, 18%, 26%);
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.mailing-list-article {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  background-color: hsl(0, 0%, 100%);
+  align-items: center;
+}
+@media (min-width: 795px) {
+  .mailing-list-article {
+    flex-direction: row-reverse;
+    max-width: 900px;
+    border-radius: 25px;
+    padding: 2rem;
+  }
+}
+.mailing-list-article picture {
+  width: 100%;
+}
+@media (min-width: 795px) {
+  .mailing-list-article picture {
+    width: 50%;
+  }
+}
+.mailing-list-article picture img {
+  display: block;
+  width: 100%;
+}
+.mailing-list-article .mailing-list-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+  padding: 0 1rem;
+  max-width: 500px;
+}
+@media (min-width: 795px) {
+  .mailing-list-article .mailing-list-section {
+    margin-right: 1rem;
+    align-items: flex-start;
+    width: 50%;
+    margin-top: 0;
+  }
+}
+.mailing-list-article .mailing-list-section li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.mailing-list-article .mailing-list-section li::before {
+  content: "";
+  background-image: url("../images/icon-list.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 21px;
+  height: 21px;
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+}
+.mailing-list-article .mailing-list-section form {
+  gap: 1rem;
+  display: block;
+  width: 100%;
+}
+.mailing-list-article .mailing-list-section form .label-fields {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.mailing-list-article .mailing-list-section form .label-fields .error-message {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: hsl(4, 100%, 67%);
+  display: none;
+}
+.mailing-list-article .mailing-list-section form label {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: hsl(234, 29%, 20%);
+  margin-bottom: 0.5rem;
+}
+.mailing-list-article .mailing-list-section form input {
+  display: block;
+  padding: 0.75rem 1rem;
+  border: 1px solid hsl(0, 0%, 58%);
+  width: 100%;
+  border-radius: 5px;
+}
+.mailing-list-article .mailing-list-section form input::-moz-placeholder {
+  color: hsl(0, 0%, 58%);
+}
+.mailing-list-article .mailing-list-section form input::placeholder {
+  color: hsl(0, 0%, 58%);
+}
+
+.success-message-article {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 500px;
+  border-radius: 25px;
+  background-color: hsl(0, 0%, 100%);
+  padding: 2rem;
+}/*# sourceMappingURL=styles.css.map */
